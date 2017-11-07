@@ -1,6 +1,13 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
+
+  # GET /students/search
+  def search
+    @students = Student.all
+    @nationality = params[:term]
+  end
+
   # GET /students
   # GET /students.json
   def index
